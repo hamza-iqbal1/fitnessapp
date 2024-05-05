@@ -1,0 +1,378 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: black;
+}
+:root {
+  --main-background-color: #faff00;
+  --main-background-dark: #d6d846;
+  --card-background: #222222;
+  --sub-section-font-size: 2.5rem;
+}
+* {
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: transparent;
+  color: #fff;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.line1,
+.line2,
+.line3 {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin-left: 0 !important;
+    padding-left: 10px;
+  }
+  button {
+    padding: 0.3em 1em !important;
+    font-size: 1.4rem !important;
+  }
+  :root {
+    --sub-section-font-size: 1.5rem;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    /* adjust as necessary */
+    left: 0;
+    background: black;
+    padding: 10px;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .burger.active .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.active .line2 {
+    opacity: 0;
+  }
+
+  .burger.active .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .intro {
+    display: flex;
+  }
+}
+
+button {
+  margin-top: 1em;
+  background: var(--main-background-color);
+  color: black;
+  border: none;
+  padding: 0.7em 1.8em;
+  border-radius: 35px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.intro {
+  display: flex;
+  height: 95vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.left,
+.right {
+  flex: 0.5;
+}
+
+.right {
+  position: relative;
+  overflow: hidden;
+  height: inherit;
+}
+
+.right::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("imgs/gym-boy.avif");
+  background-size: cover;
+  background-position: center;
+  mask-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  z-index: -1;
+}
+.heading {
+  font-size: calc(var(--sub-section-font-size) * 1.1);
+}
+
+.card {
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 2em;
+  font-size: var(--sub-section-font-size);
+  transform: translateX(-10px);
+}
+
+.section h3 {
+  font-size: 1.7rem;
+  margin-bottom: 5px;
+}
+
+.section p {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+.fas {
+  color: var(--main-background-color);
+}
+main {
+  margin-left: 5em;
+}
+
+.card-membership {
+  background: var(--card-background);
+  width: fit-content;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 40em;
+  height: 35em;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.hr {
+  height: 1px;
+  background-color: #ccc;
+  margin: 15px 0;
+}
+.offerings {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+.offerings li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.buy-btn {
+  display: block;
+  width: 100%;
+  background-color: var(--main-background-color);
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  color: black;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  margin-top: auto;
+}
+.buy-btn:hover {
+  background-color: var(--main-background-dark);
+}
+.offerings i {
+  font-size: 2rem;
+  margin-right: 0.5em;
+}
+
+.offerings li {
+  display: flex;
+  align-items: center;
+}
+.cards-container {
+  display: flex;
+  gap: 2.4rem;
+  flex-wrap: wrap;
+}
+.membership h2 {
+  text-align: center;
+  font-size: var(--sub-section-font-size);
+  margin-bottom: 3em;
+  margin-top: 2em;
+}
+.hidden {
+  opacity: 0;
+}
+
+.contact-container {
+  font-family: Arial, sans-serif;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: black;
+  outline: none;
+}
+input[type="submit"] {
+  background-color: var(--main-background-color);
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+input[type="submit"]:hover {
+  background-color: var(--main-background-dark);
+  margin: auto;
+}
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.btn-container {
+  display: grid;
+  place-items: center;
+}
+
+.contact-container h2 {
+  font-size: var(--sub-section-font-size);
+  margin-bottom: 1.2em;
+}
+
+.calories-calculator {
+  background-color: transparent;
+  padding: 40px;
+  border-radius: 8px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 80vw;
+  width: 100%;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: black;
+}
+.btn-calculate {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.btn-calculate:hover {
+  background-color: #0056b3;
+}
+.result {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #007bff;
+}
